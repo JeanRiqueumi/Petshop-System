@@ -1,5 +1,6 @@
 🐾 PetShop System - Trabalho Acadêmico
 📖 Informações Gerais
+
 Disciplina: ORGANIZAÇÃO E ABSTRAÇÃO NA PROGRAMAÇÃO
 Título do Trabalho: Sistema de Gerenciamento de PetShop em Python
 
