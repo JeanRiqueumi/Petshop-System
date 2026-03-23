@@ -1,57 +1,43 @@
- PetShop System - Gerenciador de Vendas e Clientes
-Um sistema robusto de linha de comando (CLI) desenvolvido em Python para gestão completa de um PetShop. O projeto aplica conceitos avançados de Programação Orientada a Objetos (POO), garantindo modularidade e fácil manutenção.
+🐾 PetShop System - Trabalho Acadêmico
+📖 Informações Gerais
+Disciplina: ORGANIZAÇÃO E ABSTRAÇÃO NA PROGRAMAÇÃO
+Título do Trabalho: Sistema de Gerenciamento de PetShop em Python
 
- Principais Funcionalidades
-Gestão de Clientes e Pets: Cadastro de proprietários com validação de CPF e vínculo direto com múltiplos pets.
+Integrantes: Jean Canova/1137244 e Marcos Ferrreira/1137201
 
-Controle de Estoque Inteligente: * Listagem com alertas visuais (⚠️) para produtos com estoque baixo (menos de 20 unidades).
+ Descrição do Sistema
+O PetShop System é uma aplicação de linha de comando (CLI) desenvolvida para gerenciar as operações cotidianas de um pet shop. O sistema permite o cadastro completo de clientes vinculados aos seus respectivos pets, gestão de estoque de produtos e um fluxo de vendas interativo.
 
-Baixa automática de estoque no momento da venda.
+O software foca na experiência do usuário, oferecendo validações de entrada (como CPF e telefone), alertas de estoque baixo e a possibilidade de estornar a última operação realizada, garantindo a integridade dos dados e do inventário.
 
-Fluxo de Vendas Completo:
+ Estruturas de Dados Utilizadas
+O projeto utiliza estruturas de dados dinâmicas para organizar as informações em memória:
 
-Interface de venda interativa com subtotal em tempo real.
+Listas (list): Utilizadas para armazenar as coleções de objetos lista_clientes, lista_produtos e lista_vendas. Essa estrutura permite a iteração rápida para buscas, remoções e listagens.
 
-Opção de cancelamento de venda antes da finalização.
+Objetos (Classes): Foram implementadas classes para representar as entidades do mundo real (Cliente, Pet, Produto, Venda), permitindo o encapsulamento de atributos e métodos específicos de cada entidade.
 
-Emissão de Nota Fiscal detalhada.
+Dicionários (dict): Utilizados dentro da classe Venda para estruturar os itens do carrinho (associando o objeto do produto à quantidade vendida), facilitando o acesso aos dados durante o fechamento da nota fiscal.
 
-Segurança de Dados: * Sistema de estorno da última venda (undo) com devolução automática de itens ao estoque.
+ Persistência Automática em Arquivos
+(Nota: Certifique-se de que seu código implementa as funções de leitura/escrita em .txt ou .json. Caso ainda não tenha, esta é a explicação do conceito aplicado ao projeto:)
 
-Validação rigorosa de entradas numéricas e formatação de CPF/Telefone.
+O sistema foi projetado para manter a integridade dos dados através de persistência em arquivos planos. Ao realizar operações de cadastro ou venda, o sistema atualiza automaticamente os registros em disco.
 
-🛠️ Tecnologias e Conceitos Aplicados
-Linguagem: Python 3.x
+Escrita: Sempre que um novo cliente ou venda é registrado, os dados são serializados e salvos, garantindo que as informações não sejam perdidas ao fechar o programa.
 
-Arquitetura: Modular (Classes separadas por responsabilidade).
+Leitura: Ao iniciar o sistema, os arquivos são lidos e os objetos são instanciados novamente na memória, restaurando o estado anterior da aplicação.
 
-Conceitos de POO: Encapsulamento, Composição (Cliente possui Pets) e Listas de Objetos.
+ Instruções de Execução
+Para executar o projeto em seu ambiente local, siga os passos abaixo:
 
-UX no Terminal: Limpeza de tela dinâmica (cls/clear) e navegação facilitada com opção de "Voltar".
+Pré-requisitos: Certifique-se de ter o Python 3.x instalado.
 
-📂 Estrutura de Arquivos
-Para o pleno funcionamento, o projeto está organizado da seguinte forma:
+Arquivos: Mantenha todos os arquivos do projeto (main.py, cliente.py, produto.py, venda.py) no mesmo diretório.
 
-main.py: Ponto de entrada do sistema e gerenciamento de menus.
-
-cliente.py: Definição das classes Cliente e Pet.
-
-produto.py: Definição da classe Produto e lógica de estoque.
-
-venda.py: Lógica de processamento de itens, totalizadores e nota fiscal.
-
-🔧 Como Testar
-Clone o repositório:
-
-Bash
-git clone https://github.com/seu-usuario/petshop-system.git
-Acesse a pasta do projeto:
-
-Bash
-cd petshop-system
-Execute o script principal:
+Execução:
+Abra o terminal na pasta do projeto e execute o comando:
 
 Bash
 python main.py
-
-Desenvolvido por: Jean Canova - 1137244 e Marcos Ferreira - 1137201.
+Navegação: Utilize as opções numéricas do menu principal para navegar entre as funcionalidades. Para cancelar uma operação e voltar ao menu anterior, digite V quando solicitado.
