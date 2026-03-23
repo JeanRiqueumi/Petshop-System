@@ -22,7 +22,6 @@ Objetos (Classes): Foram implementadas classes para representar as entidades do 
 Dicionários (dict): Utilizados dentro da classe Venda para estruturar os itens do carrinho (associando o objeto do produto à quantidade vendida), facilitando o acesso aos dados durante o fechamento da nota fiscal.
 
  Persistência Automática em Arquivos
-(Nota: Certifique-se de que seu código implementa as funções de leitura/escrita em .txt ou .json. Caso ainda não tenha, esta é a explicação do conceito aplicado ao projeto:)
 
 O sistema foi projetado para manter a integridade dos dados através de persistência em arquivos planos. Ao realizar operações de cadastro ou venda, o sistema atualiza automaticamente os registros em disco.
 
