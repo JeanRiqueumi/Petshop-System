@@ -30,6 +30,32 @@ def input_numerico(mensagem, min_digitos=None, max_digitos=None, permitir_cancel
         else:
             print("Erro: Digite apenas números!")
 
+def popular_dados():
+    lista_produtos.extend([
+        Produto("1", "Antipulga", 100.0, 10),
+        Produto("2", "Ração Monello", 19.90, 10000),
+        Produto("3", "Sabonete Antipulgas", 15.0, 20),
+        Produto("4", "Suplemento Vitaminas", 212.90, 10),
+        Produto("5", "Vermifugo Oral", 70.0, 20),
+        Produto("6", "Coleira Passeio", 25.0, 10),
+        Produto("7", "Shampoo Pet", 50.0, 25),
+        Produto("8", "Petiscos Pacote", 5.0, 50),
+        Produto("9", "Areia Gatos 5kg", 35.0, 50),
+        Produto("10", "Pote para Ração", 15.0, 30)
+    ])
+    c1 = Cliente("11122233344", "Yudi SBT", "54940028922")
+    c1.adicionar_pet(Pet("PS2", "Cão", "Pitbull"))
+
+    c2 = Cliente("12345678910", "Lauren", "54998223456")
+    c2.adicionar_pet(Pet("Tobi", "Cão", "Labrador"))
+    c2.adicionar_pet(Pet("Ravena", "Cão", "Golden"))
+    
+    c3 = Cliente("00112233445", "Yudi SBT", "54940028922")
+    c3.adicionar_pet(Pet("Tom", "Gato", "Ragdoll"))
+
+    lista_clientes.extend([c1, c2, c3])
+
+
 def cadastrar_cliente():
     limpar_tela()
     print("--- CADASTRO DE CLIENTE ---")
@@ -54,6 +80,20 @@ def cadastrar_cliente():
     novo_c.adicionar_pet(Pet(p_nome, p_esp, p_rac))
     lista_clientes.append(novo_c)
     print("\n Cliente cadastrado!")
+    input("\nEnter para continuar...")
+
+def remover_cliente():
+    limpar_tela()
+    print("--- REMOVER CLIENTE ---")
+    cpf = input_numerico("Digite o CPF do cliente para remover")
+    if cpf == 'VOLTAR': return
+
+    cliente = next((c for c in lista_clientes if c.cpf == cpf), None)
+    if cliente:
+        lista_clientes.remove(cliente)
+        print(f" Cliente {cliente.nome} removido com sucesso!")
+    else:
+        print(" Cliente não encontrado.")
     input("\nEnter para continuar...")
 
 def cadastrar_produto():
@@ -125,6 +165,37 @@ def realizar_venda():
         print("\nNota: Venda vazia.")
     input("\nPressione Enter para continuar...")
 
+def estornar_ultima_venda():
+    limpar_tela()
+    print("--- ESTORNAR ÚLTIMA VENDA ---")
+    if not lista_vendas:
+        print("Nenhuma venda para estornar.")
+    else:
+        venda = lista_vendas.pop() # Remove a última
+        for item in venda.itens:
+            item['prod'].qtd += item['qtd'] # Devolve ao estoque
+        print(f" Venda de R${venda.valor_total:.2f} estornada. Estoque atualizado!")
+    input("\nEnter para continuar...")
+
+def listar_clientes():
+    limpar_tela()
+    print("--- LISTA DE CLIENTES ---")
+    for c in lista_clientes:
+        print(f"Dono: {c.nome} | CPF: {c.cpf}")
+        for p in c.pets:
+            print(f"  └─ Pet: {p.nome} ({p.especie})")
+    input("\nEnter para voltar...")
+
+def listar_produtos():
+    limpar_tela()
+    print("--- 📦 ESTOQUE DE PRODUTOS ---")
+    print(f"{'ID':<10} | {'NOME':<20} | {'PREÇO':<12} | {'QTD':<8}")
+    print("-" * 55)
+    for p in lista_produtos:
+        aviso = "⚠️" if p.qtd < 20 else ""
+        print(f"{p.id:<10} | {p.nome:<20} | R$ {p.preco:>8.2f} | {p.qtd:<8} {aviso}")
+    input("\nEnter para voltar...")
+
 def menu():
     while True:
         limpar_tela()
@@ -158,4 +229,5 @@ def menu():
         elif op == "0": break
 
 if __name__ == "__main__":
+    popular_dados()
     menu()
