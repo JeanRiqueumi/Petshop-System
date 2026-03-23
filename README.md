@@ -5,7 +5,7 @@
 Disciplina: ORGANIZAÇÃO E ABSTRAÇÃO NA PROGRAMAÇÃO
 Título do Trabalho: Sistema de Gerenciamento de PetShop em Python
 
-Integrantes: Jean Canova/1137244 e Marcos Ferrreira/1137201
+Integrantes: Jean Canova/1137244 e Marcos Ferreira/1137201
 
  Descrição do Sistema
 O PetShop System é uma aplicação de linha de comando (CLI) desenvolvida para gerenciar as operações cotidianas de um pet shop. O sistema permite o cadastro completo de clientes vinculados aos seus respectivos pets, gestão de estoque de produtos e um fluxo de vendas interativo.
